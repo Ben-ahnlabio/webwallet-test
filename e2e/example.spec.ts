@@ -17,6 +17,7 @@ const GOOGLE_EMAIL = process.env.GOOGLE_EMAIL;
 const GOOGLE_PASSWORD = process.env.GOOGLE_PASSWORD;
 const KAKAO_USERNAME = process.env.KAKAO_USERNAME;
 const KAKAO_PASSWORD = process.env.KAKAO_PASSWORD;
+const HEADLESS = process.env.HEADLESS === "true" ? true : false; // for google login, headless should be false
 
 test("webwallet google social login", async () => {
   if (!GOOGLE_EMAIL || !GOOGLE_PASSWORD) {
@@ -24,7 +25,7 @@ test("webwallet google social login", async () => {
   }
 
   const browser = await chromium.launch({
-    headless: false,
+    headless: HEADLESS,
     args: browserArgs,
   });
   const context = await browser.newContext({});
@@ -76,7 +77,7 @@ test("webwallet kakao social login", async () => {
   }
 
   const browser = await chromium.launch({
-    headless: false,
+    headless: HEADLESS,
     args: browserArgs,
   });
   const context = await browser.newContext({});
