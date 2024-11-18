@@ -2,6 +2,12 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 
+env:
+  GOOGLE_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
+  GOOGLE_PASSWORD: ${{ secrets.GOOGLE_PASSWORD }}
+  KAKAO_USERNAME: ${{ secrets.KAKAO_USERNAME }}
+  KAKAO_PASSWORD: ${{ secrets.KAKAO_PASSWORD }}
+
 jobs:
   test:
     timeout-minutes: 60
