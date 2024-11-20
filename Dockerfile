@@ -3,4 +3,5 @@ RUN mkdir -p /app
 COPY . ./app
 WORKDIR /app
 RUN npm ci
-ENTRYPOINT ["./docker-entrypoint.sh"]
+RUN npm run build
+CMD ["./docker-entrypoint.sh"]
